@@ -1,32 +1,38 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import DrumPad from './components/DrumPad';
 import './App.css';
 import sampleBanks from './components/SampleBanks';
 
 function App() {
   const currentBank = sampleBanks.bank1;
+  const [preloadedSamples, setPreloadedSamples] = useState({});
 
-  const playSoundByKey = (key) => {
-    const sample = currentBank.samples.find(s => s.key === key.toLowerCase());
-    if (sample) {
+  useEffect(() => {
+    const samples = {};
+    currentBank.samples.forEach(sample => {
       const audio = new Audio(currentBank.basePath + sample.file);
-      audio.play();
+      audio.preload = 'auto';
+      samples[sample.key] = audio;
+    });
+    setPreloadedSamples(samples);
+  }, [currentBank.basePath, currentBank.samples]); // Include necessary dependencies
+
+  const playSoundByKey = useCallback((key) => {
+    const sampleKey = key.toLowerCase();
+    if (preloadedSamples[sampleKey]) {
+      preloadedSamples[sampleKey].currentTime = 0;
+      preloadedSamples[sampleKey].play();
     }
-  };
+  }, [preloadedSamples]);
 
   useEffect(() => {
     const handleKeyPress = (e) => {
       playSoundByKey(e.key);
     };
 
-    // Add the event listener
     window.addEventListener('keypress', handleKeyPress);
-
-    // Cleanup function to remove the event listener
-    return () => {
-      window.removeEventListener('keypress', handleKeyPress);
-    };
-  }, []); // Empty dependency array means this effect runs once on mount and once on unmount
+    return () => window.removeEventListener('keypress', handleKeyPress);
+  }, [playSoundByKey]); // Add playSoundByKey as a dependency
 
   return (
     <div className="app">
