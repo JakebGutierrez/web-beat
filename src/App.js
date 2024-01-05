@@ -11,6 +11,40 @@ function App() {
 
   const [waveSurfer, setWaveSurfer] = useState(null);
 
+  const handlePlayPause = useCallback(() => {
+    if (waveSurfer) {
+      waveSurfer.playPause();
+    }
+  }, [waveSurfer]);
+
+  const handleRestartTrack = useCallback(() => {
+    if (waveSurfer) {
+      const isPlaying = waveSurfer.isPlaying();
+      waveSurfer.seekTo(0); // Restart the track
+      
+      if (isPlaying) {
+        waveSurfer.play(); // Continue playing if it was playing
+      } else {
+        waveSurfer.pause(); // Stay paused if it was not playing
+      }
+    }
+  }, [waveSurfer]);
+  
+
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (e.key === ' ') {
+        e.preventDefault(); // Prevent the default action of the space bar
+        handlePlayPause();
+      } else if (e.key === 'ArrowLeft') {
+        handleRestartTrack();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [handlePlayPause, handleRestartTrack]);
+
   useEffect(() => {
     const waveSurferInstance = WaveSurfer.create({
       container: '#waveform',
@@ -25,12 +59,6 @@ function App() {
     return () => waveSurferInstance.destroy();
   }, [DEFAULT_TRACK]); // Include DEFAULT_TRACK in dependencies
 
-  // Add play and pause functionality
-  const handlePlayPause = () => {
-    if (waveSurfer) {
-      waveSurfer.playPause();
-    }
-  };
 
 
   useEffect(() => {
@@ -63,11 +91,15 @@ function App() {
   return (
     <div className="app">
       <div id="waveform" className="visualizer"></div>
-      <button onClick={handlePlayPause}>Play/Pause</button>
+      {/* <div className="now-playing">
+        <div className="scrolling-text">Now Playing: Julian Winter - Pete's Pool</div>
+      </div> */}
       <div className="drum-machine">
         {currentBank.samples.map((sample, index) => (
           <DrumPad key={index} keyLabel={sample.key} samplePath={currentBank.basePath + sample.file} />
         ))}
+        <button className="control-pad play-pause" onClick={handlePlayPause}>▶</button>
+        <button className="control-pad restart" onClick={handleRestartTrack}>←</button>
       </div>
     </div>
   );
