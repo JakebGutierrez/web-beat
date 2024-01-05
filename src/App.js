@@ -2,10 +2,36 @@ import React, { useEffect, useState, useCallback } from 'react';
 import DrumPad from './components/DrumPad';
 import './App.css';
 import sampleBanks from './components/SampleBanks';
+import WaveSurfer from 'wavesurfer.js';
 
 function App() {
   const currentBank = sampleBanks.bank1;
   const [preloadedSamples, setPreloadedSamples] = useState({});
+  const DEFAULT_TRACK = `${process.env.PUBLIC_URL}/assets/Julian Winter - Pete's Pool.mp3`;
+
+  const [waveSurfer, setWaveSurfer] = useState(null);
+
+  useEffect(() => {
+    const waveSurferInstance = WaveSurfer.create({
+      container: '#waveform',
+      waveColor: 'violet',
+      progressColor: 'purple'
+    });
+
+    waveSurferInstance.load(DEFAULT_TRACK);
+
+    setWaveSurfer(waveSurferInstance);
+  
+    return () => waveSurferInstance.destroy();
+  }, [DEFAULT_TRACK]); // Include DEFAULT_TRACK in dependencies
+
+  // Add play and pause functionality
+  const handlePlayPause = () => {
+    if (waveSurfer) {
+      waveSurfer.playPause();
+    }
+  };
+
 
   useEffect(() => {
     const samples = {};
@@ -36,7 +62,8 @@ function App() {
 
   return (
     <div className="app">
-      <img src={process.env.PUBLIC_URL + "/assets/visualiser-placeholder.png"} alt="Visualizer Placeholder" className="visualizer" />
+      <div id="waveform" className="visualizer"></div>
+      <button onClick={handlePlayPause}>Play/Pause</button>
       <div className="drum-machine">
         {currentBank.samples.map((sample, index) => (
           <DrumPad key={index} keyLabel={sample.key} samplePath={currentBank.basePath + sample.file} />
