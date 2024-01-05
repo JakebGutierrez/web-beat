@@ -1,3 +1,7 @@
+body {
+  background-color: #B0C4DE;
+}
+
 .drum-machine {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -12,4 +16,11 @@
   color: white;
   border: none;
   font-size: 1.2rem;
+}
+
+.visualizer {
+  width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+  margin-bottom: 20px;
 }
