@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+# WebBeat
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+WebBeat is a revolutionary web-based drum machine, designed for music enthusiasts and beat makers. Inspired by the iconic SP404 and Akai MPC, this application transforms your browser into a dynamic beat production studio. With its intuitive layout and responsive design, WebBeat is perfect for creating unique drum patterns and experimenting with rhythms on the fly. Whether you're a beginner or a seasoned producer, WebBeat offers an engaging platform to unleash your musical creativity.
 
-In the project directory, you can run:
+## Features
 
-### `yarn start`
+- **16 Drum Pads with Unique Sounds**: Tap into a diverse range of drum sounds assigned to keys `1`, `2`, `3`, `4`, `Q`, `W`, `E`, `R`, `A`, `S`, `D`, `F`, `Z`, `X`, `C`, `V`.
+- **Interactive Backing Track Control**: Use the space bar to play/pause a backing track, and the left arrow key to restart it.
+- **Waveform Navigation**: Visualize the entire track's waveform with WaveSurfer.js and interact with it by clicking or dragging the playhead to adjust playback.
+- **Responsive and User-friendly UI**: Designed for ease of use, the interface is intuitive, making it simple to create beats and manipulate sounds.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How to Use
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Creating and manipulating beats in WebBeat is straightforward and fun. Here’s how you can get started:
 
-### `yarn test`
+1. **Playing the Drum Pads**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   - Use the keys `1-4`, `QWER`, `ASDF`, `ZXCV` to play corresponding drum sounds.
+   - Each key represents a unique drum pad, allowing you to create complex rhythms.
 
-### `yarn build`
+2. **Controlling the Backing Track**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   - Press the space bar to play or pause the backing track.
+   - Hit the left arrow key to restart the backing track from the beginning.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Navigating the Waveform**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   - The waveform of the backing track is displayed via WaveSurfer.js.
+   - Click or drag on the waveform display to jump to different parts of the track, giving you precise control over playback.
 
-### `yarn eject`
+4. **Experiment and Create**
+   - Mix and match drum pad sounds with different sections of the backing track.
+   - Experiment with rhythms and patterns to create your unique beats.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Dive into WebBeat and start crafting your beats right in your web browser.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To set up WebBeat on your local machine:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Clone the Repository**
 
-## Learn More
+```bash
+   npm https://github.com/JakebGutierrez/web-beat
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This command will clone the repository to your local machine.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Install Dependencies**
 
-### Code Splitting
+   Navigate to the cloned directory and run:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+  npm install
+```
 
-### Analyzing the Bundle Size
+    This will install all the necessary dependencies for WebBeat.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. **Start the Application**
 
-### Making a Progressive Web App
+   Once the dependencies are installed, you can start the application with:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+  npm start
+```
 
-### Advanced Configuration
+This command will start the application and run it on your local server.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+3. **Access WebBeat**
 
-### Deployment
+- Open your web browser and go to http://localhost:3000.
+- You should now be able to access and use WebBeat on your local machine.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Enjoy creating beats with WebBeat!
 
-### `yarn build` fails to minify
+## Technologies Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React.js
+- Wavesurfer.js
+- HTML
+- CSS
+
+## Future Improvements
+
+- **User Audio Import**: Implement functionality for users to upload and assign their own audio files to pads, enhancing personalization and creativity.
+
+- **Sample Slicing Tool**: Introduce tools for trimming and slicing imported audio tracks, enabling users to assign these segments to specific pads for intricate beat patterns.
+
+- **Advanced Pad Control**: Expand pad functionalities to include one-shot/hold modes, volume adjustments, and the ability to switch between various sound banks.
+
+- **YouTube Sampling**: Develop a feature for sampling directly from YouTube videos, providing a vast library of sounds and inspirations.
+
+- **Audio Effects**: Add basic audio effects like reverb and delay, with options to apply them to the entire mix or individual pads, enhancing the sound texture.
+
+- **Beat Recording and Sequencing**: Create a feature for recording live sessions and programming beats, allowing users to compose and save complex rhythms and sequences.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Contributing
+
+Contributions to WebBeat are welcome and appreciated. If you're interested in contributing, please follow these steps:
+
+1. **Fork the Repository:** Create your own fork of the repo.
+2. **Create a Branch:** For each new feature or bug fix, create a new branch based on the `main` branch.
+3. **Make Changes:** Implement your changes or improvements in your branch.
+4. **Test Your Changes:** Ensure your changes do not break any existing functionalities.
+5. **Submit a Pull Request:** Open a pull request from your branch to the `main` branch of the original repo. Include a clear description of your changes.
+
+Please note that by contributing, you agree that your contributions will be licensed under its MIT License.
+
+## Author
+
+[Jakeb Gutierrez](https://github.com/JakebGutierrez)
