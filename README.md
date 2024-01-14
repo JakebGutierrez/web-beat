@@ -56,7 +56,7 @@ This command will clone the repository to your local machine.
   npm install
 ```
 
-    This will install all the necessary dependencies for WebBeat.
+   This will install all the necessary dependencies for WebBeat.
 
 3. **Start the Application**
 
