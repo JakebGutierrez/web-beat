@@ -8,7 +8,7 @@ WebBeat is a revolutionary web-based drum machine, designed for music enthusiast
 
 - **16 Drum Pads with Unique Sounds**: Tap into a diverse range of drum sounds assigned to keys `1`, `2`, `3`, `4`, `Q`, `W`, `E`, `R`, `A`, `S`, `D`, `F`, `Z`, `X`, `C`, `V`.
 - **Interactive Backing Track Control**: Use the space bar to play/pause a backing track, and the left arrow key to restart it.
-- **Waveform Navigation**: Visualize the entire track's waveform with WaveSurfer.js and interact with it by clicking or dragging the playhead to adjust playback.
+- **Waveform Navigation**: Visualise the entire track's waveform with WaveSurfer.js and interact with it by clicking or dragging the playhead to adjust playback.
 - **Responsive and User-friendly UI**: Designed for ease of use, the interface is intuitive, making it simple to create beats and manipulate sounds.
 
 ## How to Use
@@ -43,7 +43,7 @@ To set up WebBeat on your local machine:
 1. **Clone the Repository**
 
 ```bash
-   npm https://github.com/JakebGutierrez/web-beat
+   git clone https://github.com/JakebGutierrez/web-beat
 ```
 
 This command will clone the repository to your local machine.
@@ -56,7 +56,7 @@ This command will clone the repository to your local machine.
   npm install
 ```
 
-   This will install all the necessary dependencies for WebBeat.
+This will install all the necessary dependencies for WebBeat.
 
 3. **Start the Application**
 
@@ -68,7 +68,7 @@ This command will clone the repository to your local machine.
 
 This command will start the application and run it on your local server.
 
-3. **Access WebBeat**
+4. **Access WebBeat**
 
 - Open your web browser and go to http://localhost:3000.
 - You should now be able to access and use WebBeat on your local machine.
@@ -84,7 +84,7 @@ Enjoy creating beats with WebBeat!
 
 ## Future Improvements
 
-- **User Audio Import**: Implement functionality for users to upload and assign their own audio files to pads, enhancing personalization and creativity.
+- **User Audio Import**: Implement functionality for users to upload and assign their own audio files to pads, enhancing personalisation and creativity.
 
 - **Sample Slicing Tool**: Introduce tools for trimming and slicing imported audio tracks, enabling users to assign these segments to specific pads for intricate beat patterns.
 
