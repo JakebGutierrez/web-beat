@@ -43,7 +43,7 @@ To set up WebBeat on your local machine:
 1. **Clone the Repository**
 
 ```bash
-   npm https://github.com/JakebGutierrez/web-beat
+   git clone https://github.com/JakebGutierrez/web-beat
 ```
 
 This command will clone the repository to your local machine.
